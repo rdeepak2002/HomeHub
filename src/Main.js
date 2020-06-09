@@ -6,6 +6,7 @@ const path = require('path')
 const url = require('url')
 
 const fullscreen = false
+const dev = false
 
 let mainWindow
 
@@ -14,7 +15,9 @@ function createWindow() {
 
   mainWindow.loadURL('http://localhost:3000')
 
-  mainWindow.webContents.openDevTools()
+  if(dev) {
+    mainWindow.webContents.openDevTools()
+  }
 
   mainWindow.on('closed', function () {
     mainWindow = null
