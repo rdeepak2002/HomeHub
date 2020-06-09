@@ -1,3 +1,5 @@
 # HomeHub
 ## How to Run
-Python3 Main.py
+```sh
+python3 Main.py
+```
