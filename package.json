@@ -11,7 +11,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1"
   },
-  "main": "src/Main.js",
+  "main": "src/electron-start.js",
   "scripts": {
     "start": "BROWSER=none react-scripts start",
     "build": "react-scripts build",

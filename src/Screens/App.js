@@ -1,9 +1,8 @@
 import React from 'react'
-import './App.css'
-import { Route, NavLink, HashRouter } from 'react-router-dom'
+import { Route, HashRouter } from 'react-router-dom'
 
-import HomeScreen from './Screens/HomeScreen'
-import SettingsScreen from './Screens/SettingsScreen'
+import HomeScreen from './HomeScreen'
+import SettingsScreen from './SettingsScreen'
 
 function App() {
   return (
