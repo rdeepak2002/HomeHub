@@ -7,5 +7,14 @@
 }
 
 .cameraContainer {
-  
+  width: 100%;
+}
+
+.stream {
+  margin-top: 100px;
+  width: 100px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
 }

@@ -6,11 +6,11 @@ class HomeScreen extends Component {
   render() {
     return (
       <div>
-        <a class="settingsBtn" href="/#/settings">
-          <img width="100px" height="100px" src={settingsGlyph}></img>
+        <a className="settingsBtn" href="/#/settings">
+          <img src={settingsGlyph} alt="settings" width="100px" height="100px"></img>
         </a>
-        <div class="cameraContainer">
-
+        <div className="cameraContainer">
+          <img src="http://octopi.local/webcam/?action=stream1" alt="stream" className="stream"></img>
         </div>
       </div>
     )
