@@ -6,13 +6,13 @@ class SettingsScreen extends Component {
   reboot = () => {
     var data = {}
 
-    data.command = "ls"
+    data.command = 'sudo reboot'
 
-    var xmlhttp = new XMLHttpRequest()   // new HttpRequest instance
-    let theUrl = "http://localhost:8080/command"
+    var xmlhttp = new XMLHttpRequest()
+    let theUrl = 'http://localhost:8080/command'
 
-    xmlhttp.open("POST", theUrl)
-    xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8")
+    xmlhttp.open('POST', theUrl)
+    xmlhttp.setRequestHeader('Content-Type', 'application/json;charset=UTF-8')
     xmlhttp.send(JSON.stringify(data))
 
     xmlhttp.onload  = function (e) {
@@ -23,7 +23,7 @@ class SettingsScreen extends Component {
         } else {
           console.error(xmlhttp.statusText)
           console.log(2)
-          alert("Error contacting server.")
+          alert('Error contacting server.')
         }
       }
     }
