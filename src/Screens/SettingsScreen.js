@@ -18,7 +18,9 @@ class SettingsScreen extends Component {
         <a className="closeBtn" href="/#/">
           <img class="invertSVGColor" src={closeGlyph} alt="close" width="80px" height="60px"></img>
         </a>
-        <button onClick={this.reload}>Reload</button>
+        <div class="btnContainer">
+          <button onClick={this.reload}>Reload</button>
+        </div>
       </div>
     )
   }
