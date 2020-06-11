@@ -8,15 +8,19 @@
 
 .cameraContainer {
   margin-top: 80px;
-  margin-bottom: 50px;
   display: flex;
   flex-wrap: wrap;
+  height: calc(100vh - 80px);
 }
 
 .cameraContainer > iframe {
+  flex-grow: 1;
+  flex-basis: 0;
+
   margin-top: 50px;
-  width: 30%;
-  height: auto;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
   display: block;
   margin-left: auto;
   margin-right: auto;
