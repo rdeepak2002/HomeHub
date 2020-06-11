@@ -48,7 +48,12 @@ class SettingsScreen extends Component {
       if (xmlhttp.readyState === 4) {
         if (xmlhttp.status === 200) {
           let obj = JSON.parse(xmlhttp.responseText)
-          alert(obj.message)
+          if(obj.message.trim() != 'Already up to date.') {
+            this.reboot()
+          }
+          else {
+            alert(obj.message)
+          }
         } else {
           console.error(xmlhttp.statusText)
           console.log(2)
