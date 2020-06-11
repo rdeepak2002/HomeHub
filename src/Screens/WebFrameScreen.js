@@ -13,6 +13,10 @@ class WebFrameScreen extends Component {
         <a onClick={soundManager.playBtnSound()} className="closeBtn" href="/#/">
           <img className="invertSVGColor" src={closeGlyph} alt="close" width="80px" height="60px"></img>
         </a>
+
+        <div className="frameContainer">
+          <iframe src="http://192.168.1.242"></iframe>
+        </div>
       </div>
     )
   }

@@ -5,3 +5,26 @@
   margin-right: 10px;
   margin-top: 10px;
 }
+
+.frameContainer {
+  margin-top: 80px;
+  display: flex;
+  flex-wrap: wrap;
+  height: calc(100vh - 80px);
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.frameContainer > iframe {
+  position: relative;
+
+  flex-grow: 1;
+  flex-basis: 0;
+
+  margin-bottom: 50px;
+
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}

@@ -13,6 +13,7 @@
   height: calc(100vh - 80px);
   margin-left: 10px;
   margin-right: 10px;
+  margin-bottom: 10px;
 }
 
 .cameraContainer > div {
