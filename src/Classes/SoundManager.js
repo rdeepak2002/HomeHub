@@ -3,13 +3,22 @@ import UIfx from 'uifx'
 import buttonSoundFile from '../Sounds/button.mp3'
 
 export default class SoundManager {
-
   constructor(name, socketRoom, isTeacher) {
+    let date = new Date()
+
+    this.volume = 0.02
     this.buttonSound = new UIfx(buttonSoundFile)
-    this.buttonSound.setVolume(0.05)
+    this.lastTimeSoundPlayed = date.getTime()
   }
 
   playBtnSound() {
-    this.buttonSound.play()
+    const throttle = 250
+    let date = new Date()
+
+    if(date.getTime()-this.lastTimeSoundPlayed>throttle) {
+      this.buttonSound.setVolume(this.volume).play()
+      this.playingSFX = true
+      this.lastTimeSoundPlayed = date.getTime()
+    }
   }
 }
