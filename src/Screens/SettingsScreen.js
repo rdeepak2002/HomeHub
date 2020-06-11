@@ -4,7 +4,29 @@ import closeGlyph from '../Images/cross-solid.svg'
 
 class SettingsScreen extends Component {
   reboot = () => {
-    alert("TODO: create server to manage this request")
+    var data = {}
+
+    data.command = "ls"
+
+    var xmlhttp = new XMLHttpRequest()   // new HttpRequest instance
+    let theUrl = "http://localhost:8080/command"
+
+    xmlhttp.open("POST", theUrl)
+    xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8")
+    xmlhttp.send(JSON.stringify(data))
+
+    xmlhttp.onload  = function (e) {
+      if (xmlhttp.readyState === 4) {
+        if (xmlhttp.status === 200) {
+          let obj = JSON.parse(xmlhttp.responseText);
+          alert(obj.message)
+        } else {
+          console.error(xmlhttp.statusText)
+          console.log(2)
+          alert("Error contacting server.")
+        }
+      }
+    }
   }
 
   render() {
