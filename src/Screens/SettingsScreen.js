@@ -6,7 +6,7 @@ class SettingsScreen extends Component {
   reboot = () => {
     var data = {}
 
-    data.command = 'sudo reboot'
+    data.command = 'ls -la'
 
     var xmlhttp = new XMLHttpRequest()
     let theUrl = 'http://localhost:8080/command'
