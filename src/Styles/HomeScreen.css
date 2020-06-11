@@ -7,14 +7,17 @@
 }
 
 .cameraContainer {
-  width: 100%;
+  margin-top: 80px;
+  margin-bottom: 50px;
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.stream {
-  margin-top: 100px;
-  width: 100px;
+.cameraContainer > iframe {
+  margin-top: 50px;
+  width: 30%;
+  height: auto;
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 40%;
 }
