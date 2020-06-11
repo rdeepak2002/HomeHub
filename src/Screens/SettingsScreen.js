@@ -3,8 +3,7 @@ import '../Styles/SettingsScreen.css'
 import closeGlyph from '../Images/cross-solid.svg'
 
 class SettingsScreen extends Component {
-  reload = () => {
-    window.location.reload(false)
+  reboot = () => {
     alert("TODO: create server to manage this request")
   }
 
@@ -16,7 +15,7 @@ class SettingsScreen extends Component {
           <img className="invertSVGColor" src={closeGlyph} alt="close" width="80px" height="60px"></img>
         </a>
         <div className="btnContainer">
-          <button onClick={this.reload}>Reload</button>
+          <button onClick={this.reboot}>Reboot</button>
         </div>
       </div>
     )
