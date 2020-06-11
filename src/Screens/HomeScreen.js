@@ -6,7 +6,7 @@ class HomeScreen extends Component {
   playBtnSound = () => {
     var audio = new Audio('../Sounds/button.mp3')
     audio.play()
-    alert('playing sound')
+    console.log('have to fix code here')
   }
 
   render() {
