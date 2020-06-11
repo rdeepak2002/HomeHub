@@ -11,9 +11,9 @@ class HomeScreen extends Component {
 
   render() {
     return (
-      <div class="screen">
+      <div className="screen">
         <a onClick={this.playBtnSound} className="settingsBtn" href="/#/settings">
-          <img class="invertSVGColor" src={settingsGlyph} alt="settings" width="70px" height="70px"></img>
+          <img className="invertSVGColor" src={settingsGlyph} alt="settings" width="70px" height="70px"></img>
         </a>
         <div className="cameraContainer">
           <iframe title="stream1" src="http://192.168.1.242/picture/1/frame/"></iframe>
