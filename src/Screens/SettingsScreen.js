@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
-import UIfx from 'uifx'
+import SoundManager from '../Classes/SoundManager'
+
 import '../Styles/SettingsScreen.css'
 import closeGlyph from '../Images/cross-solid.svg'
-import buttonSoundFile from '../Sounds/button.mp3'
-const buttonSound = new UIfx(buttonSoundFile)
+
+const soundManager = new SoundManager()
 
 class SettingsScreen extends Component {
   render() {
@@ -11,7 +12,7 @@ class SettingsScreen extends Component {
       <div className="screen">
         <h2 className="settingsTitle">SETTINGS</h2>
         <a className="closeBtn" href="/#/">
-          <img className="invertSVGColor" src={closeGlyph} alt="close" width="80px" height="60px"></img>
+          <img onClick={soundManager.playBtnSound()} className="invertSVGColor" src={closeGlyph} alt="close" width="80px" height="60px"></img>
         </a>
         <div className="btnContainer">
           <button onClick={this.update}>Update</button>
@@ -26,13 +27,8 @@ class SettingsScreen extends Component {
     )
   }
 
-  playBtnSound = () => {
-    buttonSound.setVolume(0.05).play()
-  }
-
   update = () => {
-    this.playBtnSound()
-    let rebootFunc = this.playBtnSound()
+    soundManager.playBtnSound()
 
     let data = {}
 
@@ -50,7 +46,7 @@ class SettingsScreen extends Component {
         if (xmlhttp.status === 200) {
           let obj = JSON.parse(xmlhttp.responseText)
 
-          if(obj.message.trim() == 'Already up to date.') {
+          if(obj.message.trim() === 'Already up to date.') {
             alert(obj.message)
           }
           else {
@@ -89,6 +85,8 @@ class SettingsScreen extends Component {
   }
 
   reboot = () => {
+    soundManager.playBtnSound()
+
     let data = {}
 
     data.command = 'sudo reboot'
@@ -115,6 +113,8 @@ class SettingsScreen extends Component {
   }
 
   shutdown = () => {
+    soundManager.playBtnSound()
+
     let data = {}
 
     data.command = 'sudo shutdown -h now'
