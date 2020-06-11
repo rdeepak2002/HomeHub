@@ -28,11 +28,12 @@ class SettingsScreen extends Component {
 
   playBtnSound = () => {
     buttonSound.setVolume(0.1).play()
-    
+
   }
 
   update = () => {
     this.playBtnSound()
+    let rebootFunc = this.playBtnSound()
 
     let data = {}
 
@@ -49,12 +50,7 @@ class SettingsScreen extends Component {
       if (xmlhttp.readyState === 4) {
         if (xmlhttp.status === 200) {
           let obj = JSON.parse(xmlhttp.responseText)
-          if(obj.message.trim() != 'Already up to date.') {
-            this.reboot()
-          }
-          else {
-            alert(obj.message)
-          }
+          alert(obj.message)
         } else {
           console.error(xmlhttp.statusText)
           console.log(2)
