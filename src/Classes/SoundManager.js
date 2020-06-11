@@ -3,7 +3,7 @@ import UIfx from 'uifx'
 import buttonSoundFile from '../Sounds/button.mp3'
 
 export default class SoundManager {
-  constructor(name, socketRoom, isTeacher) {
+  constructor() {
     let date = new Date()
 
     this.volume = 0.02
