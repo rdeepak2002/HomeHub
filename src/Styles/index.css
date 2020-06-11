@@ -24,6 +24,16 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.btnContainer > button:active {
+  background-color: white;
+  transition: 0.5s
+}
+
+.btnContainer > button:active:after {
+  background-color: transparent;
+  transition: 0.5s
+}
+
 .starsContainer {
   z-index: -1;
 }
