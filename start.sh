@@ -1,3 +1,3 @@
 cd /home/pi/HomeHub/
 export DISPLAY=:0
-npm start
+BROWSER=none npm start
