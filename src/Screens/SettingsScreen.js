@@ -13,10 +13,10 @@ class SettingsScreen extends Component {
 
   render() {
     return (
-      <div>
+      <div class="screen">
         <h2 className="settingsTitle">SETTINGS</h2>
         <a className="closeBtn" href="/#/">
-          <img src={closeGlyph} alt="close" width="80px" height="60px"></img>
+          <img class="invertSVGColor" src={closeGlyph} alt="close" width="80px" height="60px"></img>
         </a>
         <button onClick={this.reload}>Reload</button>
       </div>
