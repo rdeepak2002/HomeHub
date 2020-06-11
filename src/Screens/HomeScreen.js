@@ -10,7 +10,7 @@ class HomeScreen extends Component {
           <img src={settingsGlyph} alt="settings" width="100px" height="100px"></img>
         </a>
         <div className="cameraContainer">
-          <img src="http://192.168.1.242/mjpeg_stream.php" alt="stream" className="stream"></img>
+          <img src="http://192.168.1.242:8081/" alt="stream" className="stream"></img>
           <img src="http://octopi.local/webcam/?action=stream1" alt="stream" className="stream"></img>
         </div>
       </div>
