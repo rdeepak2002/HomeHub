@@ -11,7 +11,7 @@ const dev = false
 let mainWindow
 
 function createWindow() {
-  mainWindow = new BrowserWindow({width: 1024, height: 600, fullscreen: fullscreen})
+  mainWindow = new BrowserWindow({width: 1024, height: 600, fullscreen: fullscreen, webPreferences: {nodeIntegration: true}})
 
   mainWindow.loadURL('http://localhost:3000')
 
