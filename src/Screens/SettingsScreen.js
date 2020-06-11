@@ -1,14 +1,43 @@
 import React, { Component } from 'react'
+import UIfx from 'uifx'
 import '../Styles/SettingsScreen.css'
 import closeGlyph from '../Images/cross-solid.svg'
+import buttonSoundFile from '../Sounds/button.mp3'
+const buttonSound = new UIfx(buttonSoundFile)
 
 class SettingsScreen extends Component {
+  render() {
+    return (
+      <div className="screen">
+        <h2 className="settingsTitle">SETTINGS</h2>
+        <a className="closeBtn" href="/#/">
+          <img className="invertSVGColor" src={closeGlyph} alt="close" width="80px" height="60px"></img>
+        </a>
+        <div className="btnContainer">
+          <button onClick={this.update}>Update</button>
+          <button onClick={this.reboot}>Reboot</button>
+          <button onClick={this.shutdown}>Shutdown</button>
+        </div>
+
+        <audio className="audio-element">
+          <source src="/Sounds/button.mp3"></source>
+        </audio>
+      </div>
+    )
+  }
+
+  playBtnSound = () => {
+    buttonSound.play()
+  }
+
   update = () => {
-    var data = {}
+    this.playBtnSound()
+
+    let data = {}
 
     data.command = 'git -C ../HomeHub/ pull'
 
-    var xmlhttp = new XMLHttpRequest()
+    let xmlhttp = new XMLHttpRequest()
     let theUrl = 'http://localhost:8080/command'
 
     xmlhttp.open('POST', theUrl)
@@ -30,11 +59,11 @@ class SettingsScreen extends Component {
   }
 
   reboot = () => {
-    var data = {}
+    let data = {}
 
     data.command = 'sudo reboot'
 
-    var xmlhttp = new XMLHttpRequest()
+    let xmlhttp = new XMLHttpRequest()
     let theUrl = 'http://localhost:8080/command'
 
     xmlhttp.open('POST', theUrl)
@@ -56,11 +85,11 @@ class SettingsScreen extends Component {
   }
 
   shutdown = () => {
-    var data = {}
+    let data = {}
 
     data.command = 'sudo shutdown -h now'
 
-    var xmlhttp = new XMLHttpRequest()
+    let xmlhttp = new XMLHttpRequest()
     let theUrl = 'http://localhost:8080/command'
 
     xmlhttp.open('POST', theUrl)
@@ -79,22 +108,6 @@ class SettingsScreen extends Component {
         }
       }
     }
-  }
-
-  render() {
-    return (
-      <div className="screen">
-        <h2 className="settingsTitle">SETTINGS</h2>
-        <a className="closeBtn" href="/#/">
-          <img className="invertSVGColor" src={closeGlyph} alt="close" width="80px" height="60px"></img>
-        </a>
-        <div className="btnContainer">
-          <button onClick={this.update}>Update</button>
-          <button onClick={this.reboot}>Reboot</button>
-          <button onClick={this.shutdown}>Shutdown</button>
-        </div>
-      </div>
-    )
   }
 }
 

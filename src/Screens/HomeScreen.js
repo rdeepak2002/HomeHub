@@ -4,7 +4,7 @@ import settingsGlyph from '../Images/settings-solid.svg'
 
 class HomeScreen extends Component {
   playBtnSound = () => {
-    var audio = new Audio('../Sounds/button.mp3')
+    let audio = new Audio('../Sounds/button.mp3')
     audio.play()
     console.log('have to fix code here')
   }
