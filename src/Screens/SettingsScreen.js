@@ -27,7 +27,7 @@ class SettingsScreen extends Component {
   }
 
   playBtnSound = () => {
-    buttonSound.play()
+    buttonSound.setVolume(0.3).play()
   }
 
   update = () => {
