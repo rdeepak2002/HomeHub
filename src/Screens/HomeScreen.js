@@ -3,10 +3,16 @@ import '../Styles/HomeScreen.css'
 import settingsGlyph from '../Images/settings-solid.svg'
 
 class HomeScreen extends Component {
+  playBtnSound = () => {
+    var audio = new Audio('../Sounds/button.mp3')
+    audio.play()
+    alert('playing sound')
+  }
+
   render() {
     return (
       <div class="screen">
-        <a className="settingsBtn" href="/#/settings">
+        <a onClick={this.playBtnSound} className="settingsBtn" href="/#/settings">
           <img class="invertSVGColor" src={settingsGlyph} alt="settings" width="70px" height="70px"></img>
         </a>
         <div className="cameraContainer">
