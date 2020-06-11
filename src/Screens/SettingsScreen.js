@@ -19,10 +19,6 @@ class SettingsScreen extends Component {
           <button onClick={this.reboot}>Reboot</button>
           <button onClick={this.shutdown}>Shutdown</button>
         </div>
-
-        <audio className="audio-element">
-          <source src="/Sounds/button.mp3"></source>
-        </audio>
       </div>
     )
   }

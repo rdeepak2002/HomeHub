@@ -8,11 +8,6 @@ import wrenchGlyph from '../Images/wrench-solid.svg'
 const soundManager = new SoundManager()
 
 class HomeScreen extends Component {
-  optionButtonHandler = (event) => {
-    event.preventDefault()
-    soundManager.playBtnSound()
-  }
-
   render() {
     return (
       <div className="screen">
@@ -22,7 +17,7 @@ class HomeScreen extends Component {
         <div className="cameraContainer">
           <div>
             <iframe title="stream1" src="http://192.168.1.242/picture/1/frame/"></iframe>
-            <a onClick={this.optionButtonHandler} className="optionsOverlay">
+            <a onClick={soundManager.playBtnSound()} className="optionsOverlay" href="/#/stream">
               <img className="invertSVGColor" src={wrenchGlyph} alt="options" width="50px" height="50px"></img>
             </a>
           </div>

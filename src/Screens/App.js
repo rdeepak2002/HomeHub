@@ -4,6 +4,7 @@ import { Helmet } from 'react-helmet'
 
 import HomeScreen from './HomeScreen'
 import SettingsScreen from './SettingsScreen'
+import WebFrameScreen from './WebFrameScreen'
 
 import '../Styles/stars.css'
 
@@ -25,6 +26,7 @@ function App() {
         <div className="content">
           <Route exact path="/" component={HomeScreen}/>
           <Route path="/settings" component={SettingsScreen}/>
+          <Route path="/stream" component={WebFrameScreen}/>
         </div>
       </div>
     </HashRouter>

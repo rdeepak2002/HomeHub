@@ -6,7 +6,7 @@ export default class SoundManager {
   constructor() {
     let date = new Date()
 
-    this.volume = 0.02
+    this.volume = 0.04
     this.buttonSound = new UIfx(buttonSoundFile)
     this.lastTimeSoundPlayed = date.getTime()
   }
