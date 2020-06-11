@@ -3,18 +3,30 @@ import SoundManager from '../Classes/SoundManager'
 
 import '../Styles/HomeScreen.css'
 import settingsGlyph from '../Images/settings-solid.svg'
+import wrenchGlyph from '../Images/wrench-solid.svg'
 
 const soundManager = new SoundManager()
 
 class HomeScreen extends Component {
+  optionButtonHandler = (event) => {
+    event.preventDefault()
+    soundManager.playBtnSound()
+  }
+
   render() {
     return (
       <div className="screen">
-        <a className="settingsBtn" href="/#/settings">
-          <img onClick={soundManager.playBtnSound()} className="invertSVGColor" src={settingsGlyph} alt="settings" width="70px" height="70px"></img>
+        <a onClick={soundManager.playBtnSound()} className="settingsBtn" href="/#/settings">
+          <img className="invertSVGColor" src={settingsGlyph} alt="settings" width="70px" height="70px"></img>
         </a>
         <div className="cameraContainer">
-          <iframe title="stream1" src="http://192.168.1.242/picture/1/frame/"></iframe>
+          <div>
+            <iframe title="stream1" src="http://192.168.1.242/picture/1/frame/"></iframe>
+            <a onClick={this.optionButtonHandler} className="optionsOverlay">
+              <img className="invertSVGColor" src={wrenchGlyph} alt="options" width="50px" height="50px"></img>
+            </a>
+          </div>
+
         </div>
       </div>
     )

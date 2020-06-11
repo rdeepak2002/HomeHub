@@ -11,18 +11,37 @@
   display: flex;
   flex-wrap: wrap;
   height: calc(100vh - 80px);
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
-.cameraContainer > iframe {
+.cameraContainer > div {
+  position: relative;
+
   flex-grow: 1;
   flex-basis: 0;
 
   margin-top: 50px;
-  margin-left: 10px;
-  margin-right: 10px;
   margin-bottom: 10px;
-  
+
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+.optionsOverlay {
+  color: white;
+
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+div > iframe {
+  width: 100%;
+  height: 100%;
+
+  position: absolute;
+  top: 0;
+  left: 0;
 }

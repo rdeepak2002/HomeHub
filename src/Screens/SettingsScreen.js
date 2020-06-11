@@ -11,8 +11,8 @@ class SettingsScreen extends Component {
     return (
       <div className="screen">
         <h2 className="settingsTitle">SETTINGS</h2>
-        <a className="closeBtn" href="/#/">
-          <img onClick={soundManager.playBtnSound()} className="invertSVGColor" src={closeGlyph} alt="close" width="80px" height="60px"></img>
+        <a onClick={soundManager.playBtnSound()} className="closeBtn" href="/#/">
+          <img className="invertSVGColor" src={closeGlyph} alt="close" width="80px" height="60px"></img>
         </a>
         <div className="btnContainer">
           <button onClick={this.update}>Update</button>
