@@ -2,13 +2,9 @@ import React, { Component } from 'react'
 import '../Styles/SettingsScreen.css'
 import closeGlyph from '../Images/cross-solid.svg'
 
-const electron = window.require('electron')
-const {getCurrentWindow} = electron.remote
-
 class SettingsScreen extends Component {
   reload = () => {
-    getCurrentWindow().reload()
-    alert("App has been reloaded.")
+    window.location.reload(false)
   }
 
   render() {
