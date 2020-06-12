@@ -10,7 +10,13 @@ class LockScreen extends Component {
     super(props)
 
     let date = new Date()
-    let hour = ("0" + (date.getHours()%12===0 ? 12 : date.getHours()-12)).slice(-2)
+    let hour = date.getHours()
+    if(hour === 0) {
+      hour = 12
+    }
+    else if(hour>12) {
+      hour = hour-12
+    }
     let minutes = ("0" + date.getMinutes()).slice(-2)
     let seconds = ("0" + date.getSeconds()).slice(-2)
     let isMorning = (date.getHours()>11 ? false : true)
@@ -34,7 +40,13 @@ class LockScreen extends Component {
 
   tick() {
     let date = new Date()
-    let hour = ("0" + (date.getHours()%12===0 ? 12 : date.getHours()-12)).slice(-2)
+    let hour = date.getHours()
+    if(hour === 0) {
+      hour = 12
+    }
+    else if(hour>12) {
+      hour = hour-12
+    }
     let minutes = ("0" + date.getMinutes()).slice(-2)
     let seconds = ("0" + date.getSeconds()).slice(-2)
     let isMorning = (date.getHours()>11 ? false : true)
