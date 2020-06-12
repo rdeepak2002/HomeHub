@@ -8,6 +8,9 @@ const soundManager = new SoundManager()
 
 class WebFrameScreen extends Component {
   render() {
+    const fullURL = window.location.href
+    const streamURL = fullURL.substring(fullURL.indexOf('streamURL=')+10, fullURL.length)
+
     return (
       <div className="screen">
         <a onClick={soundManager.playBtnSound()} className="closeBtn" href="/#/">
@@ -16,7 +19,7 @@ class WebFrameScreen extends Component {
 
         <div className="frameContainer">
           <h1 className="loadingText">loading</h1>
-          <iframe title="streamoptions" scrolling="no" frameBorder="0" src="http://192.168.1.242">Browser not compatible.</iframe>
+          <iframe title="streamoptions" scrolling="no" frameBorder="0" src={streamURL}>Browser not compatible.</iframe>
         </div>
       </div>
     )
