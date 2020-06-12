@@ -13,7 +13,7 @@ class WebFrameScreen extends Component {
 
     return (
       <div className="screen">
-        <a onClick={soundManager.playBtnSound()} className="closeBtn" href="/#/">
+        <a onClick={soundManager.playBtnSound()} className="closeBtn" href="/#/home">
           <img className="invertSVGColor" src={closeGlyph} alt="close" width="80px" height="60px"></img>
         </a>
 

@@ -6,6 +6,7 @@ import HomeScreen from './HomeScreen'
 import SettingsScreen from './SettingsScreen'
 import WebFrameScreen from './WebFrameScreen'
 import PrinterScreen from './PrinterScreen'
+import LockScreen from './LockScreen'
 
 import '../Styles/stars.css'
 
@@ -25,7 +26,8 @@ function App() {
         </div>
 
         <div className="content">
-          <Route exact path="/" component={HomeScreen}/>
+          <Route exact path="/" component={LockScreen}/>
+          <Route path="/home" component={HomeScreen}/>
           <Route path="/settings" component={SettingsScreen}/>
           <Route path="/stream" component={WebFrameScreen}/>
           <Route path="/printer" component={PrinterScreen}/>

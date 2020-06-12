@@ -28,5 +28,16 @@
   border: 1px solid white;
   width: 600px;
   height: 70px;
-  margin: 20px;
+  margin-bottom: 25px;
+}
+
+.btnContainer > a {
+  text-align: center;
+  font-size: 2rem;
+  color: white;
+  background-color: transparent;
+  width: 600px;
+  height: 70px;
+  margin-bottom: 25px;
+  text-decoration: none;
 }
