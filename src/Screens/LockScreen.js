@@ -7,7 +7,7 @@ class LockScreen extends Component {
     super(props)
 
     this.state = {
-      time: new Date().toLocaleString()
+      time: this.formatAMPM(new Date)
     }
   }
   componentDidMount() {
@@ -22,10 +22,22 @@ class LockScreen extends Component {
   }
 
   tick() {
-    this.setState({
-      time: new Date().toLocaleString()
-    })
+    this.state = {
+      time: this.formatAMPM(new Date)
+    }
   }
+
+  formatAMPM(date) {
+    let hours = date.getHours()
+    let minutes = date.getMinutes()
+    let ampm = hours >= 12 ? 'pm' : 'am'
+    hours = hours % 12
+    hours = hours ? hours : 12
+    minutes = minutes < 10 ? '0'+minutes : minutes
+    let strTime = hours + ':' + minutes + ' ' + ampm
+    return strTime
+  }
+
 
   render() {
     return (
