@@ -42,7 +42,7 @@ class LockScreen extends Component {
     let min = date.getMinutes()
     let sec = date.getSeconds()
 
-    if(min === 0 && (sec === 0 || sec ===1)) {
+    if(min === 0 && (sec === 0 || sec ===5)) {
       soundManager.playHour(''+date.getHours())
     }
 
