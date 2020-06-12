@@ -39,7 +39,10 @@ class LockScreen extends Component {
     let seconds = ("0" + date.getSeconds()).slice(-2)
     let isMorning = (date.getHours()>11 ? false : true)
 
-    if(date.getMinutes() === 0 && date.getSeconds() === 0) {
+    let min = date.getMinutes()
+    let sec = date.getSeconds()
+
+    if(min === 0 && (sec === 0 || sec ===1)) {
       soundManager.playHour(''+date.getHours())
     }
 
