@@ -7,7 +7,7 @@ class LockScreen extends Component {
     super(props)
 
     this.state = {
-      time: this.formatAMPM(new Date)
+      time: this.formatAMPM(new Date())
     }
   }
   componentDidMount() {
@@ -23,7 +23,7 @@ class LockScreen extends Component {
 
   tick() {
     this.state = {
-      time: this.formatAMPM(new Date)
+      time: this.formatAMPM(new Date())
     }
   }
 
