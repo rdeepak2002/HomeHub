@@ -19,7 +19,6 @@ class LockScreen extends Component {
     }
     let minutes = ("0" + date.getMinutes()).slice(-2)
     let seconds = ("0" + date.getSeconds()).slice(-2)
-    let isMorning = (date.getHours()>11 ? false : true)
 
     this.state = {
       hour: hour,
@@ -27,6 +26,7 @@ class LockScreen extends Component {
       seconds: seconds
     }
   }
+
   componentDidMount() {
     this.intervalID = setInterval(
       () => this.tick(),
@@ -49,7 +49,6 @@ class LockScreen extends Component {
     }
     let minutes = ("0" + date.getMinutes()).slice(-2)
     let seconds = ("0" + date.getSeconds()).slice(-2)
-    let isMorning = (date.getHours()>11 ? false : true)
 
     let min = date.getMinutes()
     let sec = date.getSeconds()
