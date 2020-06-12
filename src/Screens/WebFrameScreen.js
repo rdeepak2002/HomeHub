@@ -15,7 +15,7 @@ class WebFrameScreen extends Component {
         </a>
 
         <div className="frameContainer">
-          <iframe seamless="seamless" src="http://192.168.1.242"></iframe>
+          <iframe scrolling="no" frameBorder="0" src="http://192.168.1.242">Browser not compatible.</iframe>
         </div>
       </div>
     )

@@ -16,7 +16,7 @@ class HomeScreen extends Component {
         </a>
         <div className="cameraContainer">
           <div>
-            <iframe title="stream1" src="http://192.168.1.242/picture/1/frame/"></iframe>
+            <iframe title="stream1" frameBorder="0" src="http://192.168.1.242/picture/1/frame/">Browser not compatible.</iframe>
             <a onClick={soundManager.playBtnSound()} className="optionsOverlay" href="/#/stream">
               <img className="invertSVGColor" src={wrenchGlyph} alt="options" width="50px" height="50px"></img>
             </a>
