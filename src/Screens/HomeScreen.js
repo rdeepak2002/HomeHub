@@ -21,6 +21,7 @@ class HomeScreen extends Component {
         </a>
 
         <div className="cameraContainer">
+          <h1 className="loadingText">loading</h1>
           <div>
             <iframe title="stream1" frameBorder="0" src="http://192.168.1.242/picture/1/frame/">Browser not compatible.</iframe>
             <a onClick={soundManager.playBtnSound()} className="optionsOverlay" href="/#/stream?streamURL=http://192.168.1.242/">
