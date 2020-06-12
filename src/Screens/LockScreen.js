@@ -20,8 +20,11 @@ class LockScreen extends Component {
     let minutes = ("0" + date.getMinutes()).slice(-2)
     let seconds = ("0" + date.getSeconds()).slice(-2)
 
+    let hourString = ''+hour
+    hourString = (hourString.length === 1 ? '0'+hourString : hourString)
+
     this.state = {
-      hour: hour,
+      hour: hourString,
       minutes: minutes,
       seconds: seconds
     }
@@ -57,8 +60,11 @@ class LockScreen extends Component {
       soundManager.playHour(''+date.getHours())
     }
 
+    let hourString = ''+hour
+    hourString = (hourString.length === 1 ? '0'+hourString : hourString)
+
     this.setState({
-      hour: hour,
+      hour: hourString,
       minutes: minutes,
       seconds: seconds
     })
