@@ -4,7 +4,7 @@ import SoundManager from '../Classes/SoundManager'
 import '../Styles/WebFrameScreen.css'
 import closeGlyph from '../Images/cross-solid.svg'
 
-const soundManager = new SoundManager()
+const soundManager = new SoundManager(false)
 
 class WebFrameScreen extends Component {
   render() {

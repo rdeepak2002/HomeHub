@@ -6,7 +6,7 @@ import printerGlyph from '../Images/printer-solid.svg'
 import settingsGlyph from '../Images/settings-solid.svg'
 import wrenchGlyph from '../Images/wrench-solid.svg'
 
-const soundManager = new SoundManager()
+const soundManager = new SoundManager(false)
 
 class HomeScreen extends Component {
   render() {

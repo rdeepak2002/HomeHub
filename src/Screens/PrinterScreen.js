@@ -4,7 +4,7 @@ import SoundManager from '../Classes/SoundManager'
 import '../Styles/PrinterScreen.css'
 import closeGlyph from '../Images/cross-solid.svg'
 
-const soundManager = new SoundManager()
+const soundManager = new SoundManager(false)
 
 class PrinterScreen extends Component {
   render() {

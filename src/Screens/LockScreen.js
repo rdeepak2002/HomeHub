@@ -1,21 +1,22 @@
 import React, { Component } from 'react'
+import SoundManager from '../Classes/SoundManager'
 
 import '../Styles/LockScreen.css'
+
+const soundManager = new SoundManager(true)
 
 class LockScreen extends Component {
   constructor(props) {
     super(props)
 
     let date = new Date()
-    let hours = ("0" + (date.getHours()%12===0 ? 12 : date.getHours()-12)).slice(-2)
-    let minutes = date.getMinutes()
+    let hour = ("0" + (date.getHours()%12===0 ? 12 : date.getHours()-12)).slice(-2)
+    let minutes = ("0" + date.getMinutes()).slice(-2)
     let seconds = ("0" + date.getSeconds()).slice(-2)
-    let time = hours + ':' + minutes + ':' + seconds
-    let morning = (date.getHours()>11 ? false : true)
+    let isMorning = (date.getHours()>11 ? false : true)
 
     this.state = {
-      time: time,
-      hours: hours,
+      hour: hour,
       minutes: minutes,
       seconds: seconds
     }
@@ -33,15 +34,17 @@ class LockScreen extends Component {
 
   tick() {
     let date = new Date()
-    let hours = ("0" + (date.getHours()%12===0 ? 12 : date.getHours()-12)).slice(-2)
-    let minutes = date.getMinutes()
+    let hour = ("0" + (date.getHours()%12===0 ? 12 : date.getHours()-12)).slice(-2)
+    let minutes = ("0" + date.getMinutes()).slice(-2)
     let seconds = ("0" + date.getSeconds()).slice(-2)
-    let time = hours + ':' + minutes + ':' + seconds
-    let morning = (date.getHours()>11 ? false : true)
+    let isMorning = (date.getHours()>11 ? false : true)
+
+    if(date.getMinutes() === 0 && date.getSeconds() === 0) {
+      soundManager.playHour(''+date.getHours())
+    }
 
     this.setState({
-      time: time,
-      hours: hours,
+      hour: hour,
       minutes: minutes,
       seconds: seconds
     })
@@ -51,7 +54,7 @@ class LockScreen extends Component {
     return (
       <div className="screen">
         <div class="lockContainer">
-          <h1 className="hours">{this.state.hours}</h1>
+          <h1 className="hours">{this.state.hour}</h1>
           <h1 className="tic">:</h1>
           <h1 className="minutes">{this.state.minutes}</h1>
           <h1 className="tic">:</h1>

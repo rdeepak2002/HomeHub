@@ -4,7 +4,7 @@ import SoundManager from '../Classes/SoundManager'
 import '../Styles/SettingsScreen.css'
 import closeGlyph from '../Images/cross-solid.svg'
 
-const soundManager = new SoundManager()
+const soundManager = new SoundManager(false)
 
 class SettingsScreen extends Component {
   render() {
