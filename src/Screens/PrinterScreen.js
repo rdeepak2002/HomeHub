@@ -15,6 +15,7 @@ class PrinterScreen extends Component {
         </a>
 
         <div className="frameContainer">
+          <h1 className="loadingText">loading</h1>
           <iframe title="printer" scrolling="no" frameBorder="0" src="http://octopi.local/">Browser not compatible.</iframe>
         </div>
       </div>

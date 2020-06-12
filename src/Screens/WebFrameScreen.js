@@ -15,6 +15,7 @@ class WebFrameScreen extends Component {
         </a>
 
         <div className="frameContainer">
+          <h1 className="loadingText">loading</h1>
           <iframe title="streamoptions" scrolling="no" frameBorder="0" src="http://192.168.1.242">Browser not compatible.</iframe>
         </div>
       </div>
