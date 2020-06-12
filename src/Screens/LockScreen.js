@@ -6,8 +6,18 @@ class LockScreen extends Component {
   constructor(props) {
     super(props)
 
+    let date = new Date()
+    let hours = ("0" + (date.getHours()%12===0 ? 12 : date.getHours()-12)).slice(-2)
+    let minutes = date.getMinutes()
+    let seconds = ("0" + date.getSeconds()).slice(-2)
+    let time = hours + ':' + minutes + ':' + seconds
+    let morning = (date.getHours()>11 ? false : true)
+
     this.state = {
-      time: this.formatAMPM(new Date())
+      time: time,
+      hours: hours,
+      minutes: minutes,
+      seconds: seconds
     }
   }
   componentDidMount() {
@@ -18,32 +28,37 @@ class LockScreen extends Component {
   }
 
   componentWillUnmount() {
-    clearInterval(this.intervalID);
+    clearInterval(this.intervalID)
   }
 
   tick() {
-    this.setState = {
-      time: this.formatAMPM(new Date())
-    }
-  }
-
-  formatAMPM(date) {
-    let hours = date.getHours()
+    let date = new Date()
+    let hours = ("0" + (date.getHours()%12===0 ? 12 : date.getHours()-12)).slice(-2)
     let minutes = date.getMinutes()
-    let ampm = hours >= 12 ? 'pm' : 'am'
-    hours = hours % 12
-    hours = hours ? hours : 12
-    minutes = minutes < 10 ? '0'+minutes : minutes
-    let strTime = hours + ':' + minutes + ' ' + ampm
-    return strTime
-  }
+    let seconds = ("0" + date.getSeconds()).slice(-2)
+    let time = hours + ':' + minutes + ':' + seconds
+    let morning = (date.getHours()>11 ? false : true)
 
+    this.setState({
+      time: time,
+      hours: hours,
+      minutes: minutes,
+      seconds: seconds
+    })
+  }
 
   render() {
     return (
       <div className="screen">
-        <h1 className="time">{this.state.time}</h1>
-        <a className="unlock" href="/#/home">‎‎ </a>
+        <div class="lockContainer">
+          <h1 className="hours">{this.state.hours}</h1>
+          <h1 className="tic">:</h1>
+          <h1 className="minutes">{this.state.minutes}</h1>
+          <h1 className="tic">:</h1>
+          <h1 className="seconds">{this.state.seconds}</h1>
+
+          <a className="unlock" href="/#/home">‎‎ </a>
+        </div>
       </div>
     )
   }
