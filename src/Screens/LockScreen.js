@@ -22,7 +22,7 @@ class LockScreen extends Component {
   }
 
   tick() {
-    this.state = {
+    this.setState = {
       time: this.formatAMPM(new Date())
     }
   }
