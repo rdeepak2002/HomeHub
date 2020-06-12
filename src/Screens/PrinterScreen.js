@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import SoundManager from '../Classes/SoundManager'
 
-import '../Styles/WebFrameScreen.css'
+import '../Styles/PrinterScreen.css'
 import closeGlyph from '../Images/cross-solid.svg'
 
 const soundManager = new SoundManager()
 
-class WebFrameScreen extends Component {
+class PrinterScreen extends Component {
   render() {
     return (
       <div className="screen">
@@ -15,11 +15,11 @@ class WebFrameScreen extends Component {
         </a>
 
         <div className="frameContainer">
-          <iframe title="streamoptions" scrolling="no" frameBorder="0" src="http://192.168.1.242">Browser not compatible.</iframe>
+          <iframe title="printer" scrolling="no" frameBorder="0" src="http://octopi.local/">Browser not compatible.</iframe>
         </div>
       </div>
     )
   }
 }
 
-export default WebFrameScreen
+export default PrinterScreen

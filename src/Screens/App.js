@@ -5,6 +5,7 @@ import { Helmet } from 'react-helmet'
 import HomeScreen from './HomeScreen'
 import SettingsScreen from './SettingsScreen'
 import WebFrameScreen from './WebFrameScreen'
+import PrinterScreen from './PrinterScreen'
 
 import '../Styles/stars.css'
 
@@ -27,6 +28,7 @@ function App() {
           <Route exact path="/" component={HomeScreen}/>
           <Route path="/settings" component={SettingsScreen}/>
           <Route path="/stream" component={WebFrameScreen}/>
+          <Route path="/printer" component={PrinterScreen}/>
         </div>
       </div>
     </HashRouter>

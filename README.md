@@ -14,6 +14,18 @@ Then add the following line:
 @lxterminal -e /home/pi/HomeHub/start.sh
 ```
 
+## OctoPrint iFrameSupport
+
+Run the following commands:
+
+```sh
+~/oprint/bin/octoprint config set --bool server.allowFraming true
+```
+
+```sh
+sudo service octoprint restart
+```
+
 ### `npm start`
 
 Runs the app in the development mode.<br />
