@@ -5,7 +5,7 @@ const BrowserWindow = electron.BrowserWindow
 const path = require('path')
 const url = require('url')
 
-const fullscreen = false
+const fullscreen = true
 const dev = false
 
 let mainWindow

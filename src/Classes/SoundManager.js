@@ -83,57 +83,6 @@ export default class SoundManager {
   }
 
   speak(text) {
-    let data = {}
-
-    data.command = 'espeak "'+text+'" 2>/dev/null'
-
-    let xmlhttp = new XMLHttpRequest()
-    let theUrl = 'http://localhost:8080/command'
-
-    xmlhttp.open('POST', theUrl)
-    xmlhttp.setRequestHeader('Content-Type', 'application/json;charset=UTF-8')
-    xmlhttp.send(JSON.stringify(data))
-
-    xmlhttp.onload  = function (e) {
-      if (xmlhttp.readyState === 4) {
-        if (xmlhttp.status === 200) {
-          let obj = JSON.parse(xmlhttp.responseText)
-
-          if(obj.message.trim() === 'Already up to date.') {
-            alert(obj.message)
-          }
-          else {
-            let data = {}
-
-            data.command = 'sudo reboot'
-
-            let xmlhttp = new XMLHttpRequest()
-            let theUrl = 'http://localhost:8080/command'
-
-            xmlhttp.open('POST', theUrl)
-            xmlhttp.setRequestHeader('Content-Type', 'application/json;charset=UTF-8')
-            xmlhttp.send(JSON.stringify(data))
-
-            xmlhttp.onload  = function (e) {
-              if (xmlhttp.readyState === 4) {
-                if (xmlhttp.status === 200) {
-                  let obj = JSON.parse(xmlhttp.responseText)
-                  alert(obj.message)
-                } else {
-                  console.error(xmlhttp.statusText)
-                  console.log(2)
-                  alert('Error contacting server.')
-                }
-              }
-            }
-          }
-
-        } else {
-          console.error(xmlhttp.statusText)
-          console.log(2)
-          alert('Error contacting server.')
-        }
-      }
-    }
+    alert(text)
   }
 }
