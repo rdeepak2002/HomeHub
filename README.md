@@ -27,6 +27,13 @@ sudo service octoprint restart
 ```
 
 ## Pico Text to Speech Installation (Required)
+Force the audio output to HDMI: https://www.raspberrypi.org/documentation/configuration/audio-config.md#:~:text=The%20Raspberry%20Pi%20has%20two,plugged%20into%20the%20headphone%20jack.
+```sh
+sudo apt-get install pulseaudio
+```
+```sh
+sudo modprobe snd_bcm2835
+```
 ```sh
 sudo apt-get install alsa-utils
 ```
