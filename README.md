@@ -14,7 +14,7 @@ Then add the following line:
 @lxterminal -e /home/pi/HomeHub/start.sh
 ```
 
-## OctoPrint iFrameSupport
+## OctoPrint iFrameSupport (Required)
 
 Run the following commands:
 
@@ -24,6 +24,42 @@ Run the following commands:
 
 ```sh
 sudo service octoprint restart
+```
+
+## Pico Text to Speech Installation (Required)
+```sh
+sudo apt-get install alsa-utils
+```
+```sh
+sudo nano /etc/modules
+```
+Then add the line: snd_bcm2835
+```sh
+sudo apt-get install mplayer
+```
+```sh
+sudo nano /etc/mplayer/mplayer.conf
+```
+```sh
+nolirc=yes
+```
+```sh
+wget http://ftp.fr.debian.org/debian/pool/non-free/s/svox/libttspico-data_1.0+git20130326-3_all.deb
+```
+```sh
+wget http://ftp.fr.debian.org/debian/pool/non-free/s/svox/libttspico0_1.0+git20130326-3_armhf.deb
+```
+```sh
+wget http://ftp.fr.debian.org/debian/pool/non-free/s/svox/libttspico-utils_1.0+git20130326-3_armhf.deb
+```
+```sh
+sudo dpkg -i libttspico-data_1.0+git20130326-3_all.deb
+```
+```sh
+sudo dpkg -i libttspico0_1.0+git20130326-3_armhf.deb
+```
+```sh
+sudo dpkg -i libttspico-utils_1.0+git20130326-3_armhf.deb
 ```
 
 ### `npm start`
