@@ -98,7 +98,6 @@ export default class SoundManager {
       if (xmlhttp.readyState === 4) {
         if (xmlhttp.status === 200) {
           let obj = JSON.parse(xmlhttp.responseText)
-          alert(obj.message)
         } else {
           console.error(xmlhttp.statusText)
           console.log(2)
