@@ -27,8 +27,6 @@ import t21 from '../Sounds/21.mp3'
 import t22 from '../Sounds/22.mp3'
 import t23 from '../Sounds/23.mp3'
 
-import Speech from 'react-speech'
-
 export default class SoundManager {
   constructor(needsTime) {
     let date = new Date()
@@ -85,16 +83,57 @@ export default class SoundManager {
   }
 
   speak(text) {
-    let msg = new SpeechSynthesisUtterance()
+    let data = {}
 
-    msg.voice = this.voices[0]
-    msg.voiceURI = 'native'
-    msg.volume = 1
-    msg.rate = 1
-    msg.pitch = 1
-    msg.text = text
-    msg.lang = 'en-GB'
+    data.command = 'espeak "Hello World" 2>/dev/null'
 
-    speechSynthesis.speak(msg)
+    let xmlhttp = new XMLHttpRequest()
+    let theUrl = 'http://localhost:8080/command'
+
+    xmlhttp.open('POST', theUrl)
+    xmlhttp.setRequestHeader('Content-Type', 'application/json;charset=UTF-8')
+    xmlhttp.send(JSON.stringify(data))
+
+    xmlhttp.onload  = function (e) {
+      if (xmlhttp.readyState === 4) {
+        if (xmlhttp.status === 200) {
+          let obj = JSON.parse(xmlhttp.responseText)
+
+          if(obj.message.trim() === 'Already up to date.') {
+            alert(obj.message)
+          }
+          else {
+            let data = {}
+
+            data.command = 'sudo reboot'
+
+            let xmlhttp = new XMLHttpRequest()
+            let theUrl = 'http://localhost:8080/command'
+
+            xmlhttp.open('POST', theUrl)
+            xmlhttp.setRequestHeader('Content-Type', 'application/json;charset=UTF-8')
+            xmlhttp.send(JSON.stringify(data))
+
+            xmlhttp.onload  = function (e) {
+              if (xmlhttp.readyState === 4) {
+                if (xmlhttp.status === 200) {
+                  let obj = JSON.parse(xmlhttp.responseText)
+                  alert(obj.message)
+                } else {
+                  console.error(xmlhttp.statusText)
+                  console.log(2)
+                  alert('Error contacting server.')
+                }
+              }
+            }
+          }
+
+        } else {
+          console.error(xmlhttp.statusText)
+          console.log(2)
+          alert('Error contacting server.')
+        }
+      }
+    }
   }
 }
