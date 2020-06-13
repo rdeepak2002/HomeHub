@@ -81,7 +81,6 @@ class LockScreen extends Component {
           <h1 className="minutes">{this.state.minutes}</h1>
           <h1 className="tic">:</h1>
           <h1 className="seconds">{this.state.seconds}</h1>
-
           <a className="unlock" href="/#/home">‎‎ </a>
         </div>
       </div>
