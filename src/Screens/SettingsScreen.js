@@ -47,59 +47,41 @@ class SettingsScreen extends Component {
     xmlhttp.onload  = function (e) {
       if (xmlhttp.readyState === 4) {
         if (xmlhttp.status === 200) {
-          let obj2 = JSON.parse(xmlhttp.responseText)
+          let obj = JSON.parse(xmlhttp.responseText)
 
-          let data = {}
+          this.updateClient(obj.message.trim())
+        } else {
+          console.error(xmlhttp.statusText)
+          console.log(2)
+          alert('Error contacting server.')
+        }
+      }
+    }
 
-          data.command = 'git -C ../HomeHub/ pull'
+  }
 
-          let xmlhttp = new XMLHttpRequest()
-          let theUrl = 'http://localhost:8080/command'
+  updateClient = (serverUpdateStatus) => {
+    let data = {}
 
-          xmlhttp.open('POST', theUrl)
-          xmlhttp.setRequestHeader('Content-Type', 'application/json;charset=UTF-8')
-          xmlhttp.send(JSON.stringify(data))
+    data.command = 'git -C ../HomeHub/ pull'
 
-          xmlhttp.onload  = function (e) {
-            if (xmlhttp.readyState === 4) {
-              if (xmlhttp.status === 200) {
-                let obj = JSON.parse(xmlhttp.responseText)
+    let xmlhttp = new XMLHttpRequest()
+    let theUrl = 'http://localhost:8080/command'
 
-                if(obj.message.trim() === 'Already up to date.' && obj2.message.trim() === 'Already up to date.') {
-                  alert(obj.message)
-                }
-                else {
-                  let data = {}
+    xmlhttp.open('POST', theUrl)
+    xmlhttp.setRequestHeader('Content-Type', 'application/json;charset=UTF-8')
+    xmlhttp.send(JSON.stringify(data))
 
-                  data.command = 'sudo reboot'
+    xmlhttp.onload  = function (e) {
+      if (xmlhttp.readyState === 4) {
+        if (xmlhttp.status === 200) {
+          let obj = JSON.parse(xmlhttp.responseText)
 
-                  let xmlhttp = new XMLHttpRequest()
-                  let theUrl = 'http://localhost:8080/command'
-
-                  xmlhttp.open('POST', theUrl)
-                  xmlhttp.setRequestHeader('Content-Type', 'application/json;charset=UTF-8')
-                  xmlhttp.send(JSON.stringify(data))
-
-                  xmlhttp.onload  = function (e) {
-                    if (xmlhttp.readyState === 4) {
-                      if (xmlhttp.status === 200) {
-                        let obj = JSON.parse(xmlhttp.responseText)
-                        alert(obj.message)
-                      } else {
-                        console.error(xmlhttp.statusText)
-                        console.log(2)
-                        alert('Error contacting server.')
-                      }
-                    }
-                  }
-                }
-
-              } else {
-                console.error(xmlhttp.statusText)
-                console.log(2)
-                alert('Error contacting server.')
-              }
-            }
+          if(obj.message.trim() === 'Already up to date.' && serverUpdateStatus  === 'Already up to date.') {
+            alert(obj.message)
+          }
+          else {
+            this.reboot()
           }
 
         } else {
@@ -109,7 +91,6 @@ class SettingsScreen extends Component {
         }
       }
     }
-
   }
 
   reboot = () => {
