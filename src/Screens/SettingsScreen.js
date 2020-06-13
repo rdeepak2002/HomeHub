@@ -35,7 +35,7 @@ class SettingsScreen extends Component {
 
     let data = {}
 
-    data.command = 'git -C ../HomeHub/ pull'
+    data.command = 'git pull'
 
     let xmlhttp = new XMLHttpRequest()
     let theUrl = 'http://localhost:8080/command'
@@ -47,33 +47,56 @@ class SettingsScreen extends Component {
     xmlhttp.onload  = function (e) {
       if (xmlhttp.readyState === 4) {
         if (xmlhttp.status === 200) {
-          let obj = JSON.parse(xmlhttp.responseText)
 
-          if(obj.message.trim() === 'Already up to date.') {
-            alert(obj.message)
-          }
-          else {
-            let data = {}
+          let data = {}
 
-            data.command = 'sudo reboot'
+          data.command = 'git -C ../HomeHub/ pull'
 
-            let xmlhttp = new XMLHttpRequest()
-            let theUrl = 'http://localhost:8080/command'
+          let xmlhttp = new XMLHttpRequest()
+          let theUrl = 'http://localhost:8080/command'
 
-            xmlhttp.open('POST', theUrl)
-            xmlhttp.setRequestHeader('Content-Type', 'application/json;charset=UTF-8')
-            xmlhttp.send(JSON.stringify(data))
+          xmlhttp.open('POST', theUrl)
+          xmlhttp.setRequestHeader('Content-Type', 'application/json;charset=UTF-8')
+          xmlhttp.send(JSON.stringify(data))
 
-            xmlhttp.onload  = function (e) {
-              if (xmlhttp.readyState === 4) {
-                if (xmlhttp.status === 200) {
-                  let obj = JSON.parse(xmlhttp.responseText)
+          xmlhttp.onload  = function (e) {
+            if (xmlhttp.readyState === 4) {
+              if (xmlhttp.status === 200) {
+                let obj = JSON.parse(xmlhttp.responseText)
+
+                if(obj.message.trim() === 'Already up to date.') {
                   alert(obj.message)
-                } else {
-                  console.error(xmlhttp.statusText)
-                  console.log(2)
-                  alert('Error contacting server.')
                 }
+                else {
+                  let data = {}
+
+                  data.command = 'sudo reboot'
+
+                  let xmlhttp = new XMLHttpRequest()
+                  let theUrl = 'http://localhost:8080/command'
+
+                  xmlhttp.open('POST', theUrl)
+                  xmlhttp.setRequestHeader('Content-Type', 'application/json;charset=UTF-8')
+                  xmlhttp.send(JSON.stringify(data))
+
+                  xmlhttp.onload  = function (e) {
+                    if (xmlhttp.readyState === 4) {
+                      if (xmlhttp.status === 200) {
+                        let obj = JSON.parse(xmlhttp.responseText)
+                        alert(obj.message)
+                      } else {
+                        console.error(xmlhttp.statusText)
+                        console.log(2)
+                        alert('Error contacting server.')
+                      }
+                    }
+                  }
+                }
+
+              } else {
+                console.error(xmlhttp.statusText)
+                console.log(2)
+                alert('Error contacting server.')
               }
             }
           }
@@ -85,6 +108,7 @@ class SettingsScreen extends Component {
         }
       }
     }
+
   }
 
   reboot = () => {
