@@ -96,9 +96,7 @@ export default class SoundManager {
 
     xmlhttp.onload  = function (e) {
       if (xmlhttp.readyState === 4) {
-        if (xmlhttp.status === 200) {
-          let obj = JSON.parse(xmlhttp.responseText)
-        } else {
+        if (!(xmlhttp.status === 200)) {
           console.error(xmlhttp.statusText)
           console.log(2)
           alert('Error contacting server.')

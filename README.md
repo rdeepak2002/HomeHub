@@ -38,6 +38,9 @@ sudo modprobe snd_bcm2835
 sudo apt-get install alsa-utils
 ```
 ```sh
+start-pulseaudio-x11
+```
+```sh
 sudo nano /etc/modules
 ```
 Then add the line: snd_bcm2835

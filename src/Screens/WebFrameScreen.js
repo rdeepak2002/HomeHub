@@ -7,13 +7,19 @@ import closeGlyph from '../Images/cross-solid.svg'
 const soundManager = new SoundManager(false)
 
 class WebFrameScreen extends Component {
+
+  constructor(props) {
+    super(props)
+    soundManager.playBtnSound()
+  }
+
   render() {
     const fullURL = window.location.href
     const streamURL = fullURL.substring(fullURL.indexOf('streamURL=')+10, fullURL.length)
 
     return (
       <div className="screen">
-        <a onClick={soundManager.playBtnSound()} className="closeBtn" href="/#/home">
+        <a className="closeBtn" href="/#/home">
           <img className="invertSVGColor" src={closeGlyph} alt="close" width="80px" height="60px"></img>
         </a>
 

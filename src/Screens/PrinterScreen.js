@@ -7,10 +7,16 @@ import closeGlyph from '../Images/cross-solid.svg'
 const soundManager = new SoundManager(false)
 
 class PrinterScreen extends Component {
+
+  constructor(props) {
+    super(props)
+    soundManager.playBtnSound()
+  }
+
   render() {
     return (
       <div className="screen">
-        <a onClick={soundManager.playBtnSound()} className="closeBtn" href="/#/home">
+        <a className="closeBtn" href="/#/home">
           <img className="invertSVGColor" src={closeGlyph} alt="close" width="80px" height="60px"></img>
         </a>
 

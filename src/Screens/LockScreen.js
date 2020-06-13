@@ -76,7 +76,7 @@ class LockScreen extends Component {
 
   assistant() {
     let greeting = 'Hello Deepak, '
-    let date = 'today is ' + (new Date().toString()).substring(0, 16) + ' '
+    let date = 'today is ' + (new Date().toString()).substring(0, 16) + '. '
 
     let text = greeting + date
 
