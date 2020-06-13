@@ -85,7 +85,7 @@ export default class SoundManager {
   speak(text) {
     let data = {}
 
-    data.command = 'espeak "Hello World" 2>/dev/null'
+    data.command = 'espeak "'+text+'" 2>/dev/null'
 
     let xmlhttp = new XMLHttpRequest()
     let theUrl = 'http://localhost:8080/command'
