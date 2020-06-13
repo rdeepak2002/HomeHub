@@ -49,7 +49,9 @@ class SettingsScreen extends Component {
         if (xmlhttp.status === 200) {
           let obj = JSON.parse(xmlhttp.responseText)
 
-          this.updateClient(obj.message.trim())
+          let ss = new SettingsScreen()
+
+          ss.updateClient(obj.message.trim())
         } else {
           console.error(xmlhttp.statusText)
           console.log(2)
