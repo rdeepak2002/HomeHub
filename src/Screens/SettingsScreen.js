@@ -83,7 +83,8 @@ class SettingsScreen extends Component {
             alert(obj.message)
           }
           else {
-            this.reboot()
+            let ss = new SettingsScreen()
+            ss.reboot()
           }
 
         } else {
