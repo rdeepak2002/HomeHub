@@ -30,6 +30,8 @@ class LockScreen extends Component {
       minutes: minutes,
       seconds: seconds
     }
+
+    this.assistant = this.assistant.bind(this)
   }
 
   componentDidMount() {
@@ -72,6 +74,15 @@ class LockScreen extends Component {
     })
   }
 
+  assistant() {
+    let greeting = 'Hello Deepak, '
+    let date = 'today is ' + (new Date().toString()).substring(0, 16) + ' '
+
+    let text = greeting + date
+
+    soundManager.speak(text)
+  }
+
   render() {
     return (
       <div className="screen">
@@ -81,7 +92,10 @@ class LockScreen extends Component {
           <h1 className="minutes">{this.state.minutes}</h1>
           <h1 className="tic">:</h1>
           <h1 className="seconds">{this.state.seconds}</h1>
+
           <a className="unlock" href="/#/home">‎‎ </a>
+
+          <button className="assistant" onClick={this.assistant}></button>
         </div>
       </div>
     )

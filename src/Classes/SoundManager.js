@@ -27,6 +27,8 @@ import t21 from '../Sounds/21.mp3'
 import t22 from '../Sounds/22.mp3'
 import t23 from '../Sounds/23.mp3'
 
+import Speech from 'react-speech'
+
 export default class SoundManager {
   constructor(needsTime) {
     let date = new Date()
@@ -34,6 +36,8 @@ export default class SoundManager {
     this.volume = 0.04
     this.buttonSound = new UIfx(buttonSoundFile)
     this.lastTimeSoundPlayed = date.getTime()
+    this.voices = speechSynthesis.getVoices()
+
 
     if(needsTime) {
       this.timeHash={
@@ -78,5 +82,19 @@ export default class SoundManager {
 
   playHour(hour) {
     this.timeHash[hour].setVolume(1.0).play()
+  }
+
+  speak(text) {
+    let msg = new SpeechSynthesisUtterance()
+
+    msg.voice = this.voices[0]
+    msg.voiceURI = 'native'
+    msg.volume = 1
+    msg.rate = 1
+    msg.pitch = 1
+    msg.text = text
+    msg.lang = 'en-GB'
+
+    speechSynthesis.speak(msg)
   }
 }
