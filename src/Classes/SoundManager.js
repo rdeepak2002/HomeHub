@@ -83,6 +83,28 @@ export default class SoundManager {
   }
 
   speak(text) {
-    alert(text)
+    let data = {}
+
+    data.command = 'pico2wave -w output.wav "Hello world" && aplay output.wav'
+
+    let xmlhttp = new XMLHttpRequest()
+    let theUrl = 'http://localhost:8080/command'
+
+    xmlhttp.open('POST', theUrl)
+    xmlhttp.setRequestHeader('Content-Type', 'application/json;charset=UTF-8')
+    xmlhttp.send(JSON.stringify(data))
+
+    xmlhttp.onload  = function (e) {
+      if (xmlhttp.readyState === 4) {
+        if (xmlhttp.status === 200) {
+          let obj = JSON.parse(xmlhttp.responseText)
+          alert(obj.message)
+        } else {
+          console.error(xmlhttp.statusText)
+          console.log(2)
+          alert('Error contacting server.')
+        }
+      }
+    }
   }
 }
