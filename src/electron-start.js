@@ -10,6 +10,8 @@ const dev = false
 
 let mainWindow
 
+app.commandLine.appendSwitch('enable-speech-dispatcher')
+
 function createWindow() {
   mainWindow = new BrowserWindow({width: 1024, height: 600, fullscreen: fullscreen, webPreferences: {nodeIntegration: true}})
 
