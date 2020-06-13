@@ -47,6 +47,7 @@ class SettingsScreen extends Component {
     xmlhttp.onload  = function (e) {
       if (xmlhttp.readyState === 4) {
         if (xmlhttp.status === 200) {
+          let obj2 = JSON.parse(xmlhttp.responseText)
 
           let data = {}
 
@@ -64,7 +65,7 @@ class SettingsScreen extends Component {
               if (xmlhttp.status === 200) {
                 let obj = JSON.parse(xmlhttp.responseText)
 
-                if(obj.message.trim() === 'Already up to date.') {
+                if(obj.message.trim() === 'Already up to date.' && obj2.message.trim() === 'Already up to date.') {
                   alert(obj.message)
                 }
                 else {
