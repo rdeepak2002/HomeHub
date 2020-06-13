@@ -86,7 +86,6 @@ class SettingsScreen extends Component {
             let ss = new SettingsScreen()
             ss.reboot()
           }
-
         } else {
           console.error(xmlhttp.statusText)
           console.log(2)
