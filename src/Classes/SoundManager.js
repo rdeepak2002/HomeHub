@@ -85,7 +85,9 @@ export default class SoundManager {
   speak(text) {
     let data = {}
 
-    data.command = 'pico2wave -w output.wav "' + text + '" && aplay output.wav'
+    // use pico tts for really long strings or if Google translate stops working:
+    // data.command = 'pico2wave -w output.wav "' + text + '" && aplay output.wav'
+    data.command = './speech.sh ' + text
 
     let xmlhttp = new XMLHttpRequest()
     let theUrl = 'http://localhost:8080/command'
