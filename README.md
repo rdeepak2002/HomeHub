@@ -41,7 +41,7 @@ sudo apt-get install alsa-utils
 start-pulseaudio-x11
 ```
 ```sh
-apt-get install mpg123
+sudo apt-get install mpg123
 ```
 ```sh
 sudo nano /etc/modules
