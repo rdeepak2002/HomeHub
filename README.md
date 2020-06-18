@@ -1,5 +1,8 @@
 # HomeHub
 
+## Install Node
+https://linuxize.com/post/how-to-install-node-js-on-raspberry-pi/
+
 ## Autostart
 
 On a Raspberry Pi 4 run the following command:
