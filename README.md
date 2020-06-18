@@ -75,6 +75,11 @@ sudo dpkg -i libttspico0_1.0+git20130326-3_armhf.deb
 sudo dpkg -i libttspico-utils_1.0+git20130326-3_armhf.deb
 ```
 
+
+### `npm install`
+
+Installs node modules.
+
 ### `npm start`
 
 Runs the app in the development mode.<br />
