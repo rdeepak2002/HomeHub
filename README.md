@@ -56,9 +56,9 @@ sudo apt-get install mplayer
 ```sh
 sudo nano /etc/mplayer/mplayer.conf
 ```
-```sh
-nolirc=yes
-```
+
+Then add the line: nolirc=yes
+
 ```sh
 wget http://ftp.fr.debian.org/debian/pool/non-free/s/svox/libttspico-data_1.0+git20130326-3_all.deb
 ```
