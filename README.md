@@ -29,10 +29,10 @@ Add the following lines
 
 ```sh
 # Turn monitor on
-0 7  * * 1-5 /usr/bin/vcgencmd display_power 1
+0 7  * * * /usr/bin/vcgencmd display_power 1
 
 # Turn monitor off
-0 20 * * 1-5 /usr/bin/vcgencmd display_power 0
+0 20 * * * /usr/bin/vcgencmd display_power 0
 ```
 
 ## OctoPrint iFrameSupport (Required)
