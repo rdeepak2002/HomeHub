@@ -17,6 +17,24 @@ Then add the following line:
 @lxterminal -e /home/pi/HomeHub/start.sh
 ```
 
+## Automatically Turn Off Display at Night
+
+Edit crontab 
+
+```sh
+crontab -e
+```
+
+Add the following lines
+
+```sh
+# Turn monitor on
+0 7  * * 1-5 /usr/bin/vcgencmd display_power 1
+
+# Turn monitor off
+0 20 * * 1-5 /usr/bin/vcgencmd display_power 0
+```
+
 ## OctoPrint iFrameSupport (Required)
 
 Run the following commands:
