@@ -10,6 +10,9 @@ class PrinterScreen extends Component {
 
   constructor(props) {
     super(props)
+  }
+
+  componentWillMount() {
     soundManager.playBtnSound()
   }
 

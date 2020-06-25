@@ -9,8 +9,6 @@ class LockScreen extends Component {
   constructor(props) {
     super(props)
 
-    soundManager.playBtnSound()
-
     let date = new Date()
     let hour = date.getHours()
     if(hour === 0) {
@@ -32,6 +30,10 @@ class LockScreen extends Component {
     }
 
     this.assistant = this.assistant.bind(this)
+  }
+
+  componentWillMount() {
+    soundManager.playBtnSound()
   }
 
   componentDidMount() {
