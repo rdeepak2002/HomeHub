@@ -39,7 +39,7 @@ class LockScreen extends Component {
   componentDidMount() {
     this.intervalID = setInterval(
       () => this.tick(),
-      900
+      1000
     )
   }
 
